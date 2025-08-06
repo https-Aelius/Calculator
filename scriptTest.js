@@ -17,18 +17,19 @@ function appendOperation(operation){
         console.log("the previous Input is", previousInput);
         currentInput = ''; //reset currentInput
         console.log(`${previousInput} ${currentOperation}`);
-        document.getElementById('display').value = `${previousInput} ${currentOperation}`;
-    }; 
-    if (currentOutput !== '') {
-        calculate(); //if there is an output, calculate before appending the operation
+
+
+        document.getElementById('display').value = `${previousInput} ${currentOperation}`; 
+
     }
-
     //logical error here!!
+    else{
+        currentOperation = operation; //setting the current operation
+        previousInput = currentInput; //setting the previous input
+        currentInput = '';
+        document.getElementById('display').value = `${previousInput} ${currentOperation}`;
 
-    currentOperation = operation; //setting the current operation
-    previousInput = currentInput; //setting the previous input
-    currentInput = '';
-    document.getElementById('display').value = `${previousInput} ${currentOperation}`;
+    }
 
 }
 
