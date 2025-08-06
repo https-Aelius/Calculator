@@ -11,7 +11,14 @@ function appendNumber(number){ //generating code for outputting the numbers onto
 }
 
 function appendOperation(operation){
-    if (currentInput === '') return; //if there is no input, do nothing
+    if (currentInput === '') {
+        currentOperation = operation;
+        previousInput = storageString; //if there is no input, set previousInput to storageString
+        console.log("the previous Input is", previousInput);
+        currentInput = ''; //reset currentInput
+        console.log(`${previousInput} ${currentOperation}`);
+        document.getElementById('display').value = `${previousInput} ${currentOperation}`;
+    }; 
     if (currentOutput !== '') {
         calculate(); //if there is an output, calculate before appending the operation
     }
@@ -57,11 +64,10 @@ function calculate(){
             return; //if there is no operation, then do nothing
     }
 
-
-    currentOutput = result.toFixed(); //converting the result into a string
+    currentOutput = result.toString(); //converting the result into a string
     document.getElementById('display').value = currentOutput;//displaying the result
-    console.log('output');
-
+    storageString = result; //storing the calculation in the storageString 
+    console.log(result);
     currentOperation = '';
     currentInput = '';
 

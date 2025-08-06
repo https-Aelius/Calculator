@@ -2,7 +2,7 @@ let currentInput='';
 let currentOutput='';
 let previousInput='';
 let currentOperation='';
-let storageString='';
+let storageString=[''];
 
 function appendNumber(number){ //generating code for outputting the numbers onto the screen 
     currentInput += number; //same as: currentInput = currentInput + number;
