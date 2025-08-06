@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="calculator">
+        <input class = 'display' id = 'display' type = 'text' disabled>
+        <div class="buttons">
+            <button class="btn clear" id="clear" onclick="clearDisplay()">C</button>
+            <button class="btn backspace" id="backspace" onclick="backDisplay()">←</button>
+            <button class="btn operator" id="divide" onclick = "appendOperation('/')">÷</button>
+
+            <button class="btn" id="seven" onclick="appendNumber('7')">7</button>
+            <button class="btn" id="eight" onclick="appendNumber('8')">8</button>
+            <button class="btn" id="nine" onclick="appendNumber('9')">9</button>
+            <button class="btn operator" id="multiply" onclick="appendOperation('*')">x</button>
+            <button class="btn" id="four" onclick="appendNumber('4')">4</button>
+            <button class="btn" id="five" onclick="appendNumber('5')">5</button>
+            <button class="btn" id="six" onclick="appendNumber('6')">6</button>
+            <button class="btn operator" id="subtract" onclick="appendOperation('-')">-</button>
+            <button class="btn" id="one" onclick="appendNumber('1')">1</button>
+            <button class="btn" id="two" onclick="appendNumber('2')">2</button>
+            <button class="btn" id="three" onclick="appendNumber('3')">3</button>
+            <button class="btn operator" id="add" onclick="appendOperation('+')">+</button>
+            <button class="btn zero" id="zero" onclick="appendNumber('0')">0</button>
+            <button class = 'btn' id="decimal" onclick="appendNumber('.')">.</button>
+            <button class="btn operator" id="equals" onclick="calculate()">=</button>
+        </div>
+    </div>
+</body>
+</html>
