@@ -9,7 +9,7 @@ function appendNumber(number){ //generating code for outputting the numbers onto
     if (negativeFlag) {
         currentInput += number;
         currentInput = currentInput*-1;
-        document.getElementById('display').value = `${previousInput} ${currentOperation} ${currentInput}`;
+        document.getElementById('display').value = `${currentInput}`;
         negativeFlag = false; //reset the negative flag after appending the number
     }
     else{
@@ -100,7 +100,7 @@ function clearDisplay(){
     storageString = '';
     negativeFlag = false; 
     document.getElementById('display').value = '';
-    console.log('clearDisplay has no syntax errors');
+
 }
 
 function backDisplay(){
