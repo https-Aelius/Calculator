@@ -3,31 +3,49 @@ let currentOutput='';
 let previousInput='';
 let currentOperation='';
 let storageString='';
+let negativeFlag = false;
 
-function appendNumber(number){ //generating code for outputting the numbers onto the screen 
-    currentInput += number; //same as: currentInput = currentInput + number;
-    document.getElementById('display').value = `${previousInput} ${currentOperation} ${currentInput}`; //order is important
-    //displaying the numbers
+function appendNumber(number){ //generating code for outputting the numbers onto the screen
+    if (negativeFlag) {
+        currentInput += number;
+        currentInput = currentInput*-1;
+        document.getElementById('display').value = `${previousInput} ${currentOperation} ${currentInput}`;
+        negativeFlag = false; //reset the negative flag after appending the number
+    }
+    else{
+        currentInput += number; //same as: currentInput = currentInput + number;
+        document.getElementById('display').value = `${previousInput} ${currentOperation} ${currentInput}`; //order is important
+        //displaying the numbers
+    } 
+    
 }
 
 function appendOperation(operation){
+
+    if (operation === '-' && currentInput === '') {
+        negativeFlag = true;
+        console.log('Negative If statement executed');
+    }
+
     if (currentInput === '') {
         currentOperation = operation;
         previousInput = storageString; //if there is no input, set previousInput to storageString
-        console.log("the previous Input is", previousInput);
+
         currentInput = ''; //reset currentInput
-        console.log(`${previousInput} ${currentOperation}`);
+
 
 
         document.getElementById('display').value = `${previousInput} ${currentOperation}`; 
+        console.log('No input if statement executed');
 
     }
-    //logical error here!!
+
     else{
         currentOperation = operation; //setting the current operation
         previousInput = currentInput; //setting the previous input
         currentInput = '';
         document.getElementById('display').value = `${previousInput} ${currentOperation}`;
+        console.log('else statement executed');
 
     }
 
@@ -48,7 +66,7 @@ function calculate(){
         case '-':
             result = prev - current;
             break;
-        case '*':
+        case 'x':
             result = prev*current;
             break;
         case '/':
