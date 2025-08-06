@@ -22,12 +22,12 @@ function appendNumber(number){ //generating code for outputting the numbers onto
 
 function appendOperation(operation){
 
-    if (operation === '-' && currentInput === '') {
+    if (operation === '-' && previousInput === '' && storageString === '') {
         negativeFlag = true;
         console.log('Negative If statement executed');
     }
 
-    if (currentInput === '') {
+    if (currentInput === '' && storageString !== '') {
         currentOperation = operation;
         previousInput = storageString; //if there is no input, set previousInput to storageString
 
@@ -86,7 +86,7 @@ function calculate(){
     currentOutput = result.toString(); //converting the result into a string
     document.getElementById('display').value = currentOutput;//displaying the result
     storageString = result; //storing the calculation in the storageString 
-    console.log(result);
+
     currentOperation = '';
     currentInput = '';
 
@@ -97,6 +97,8 @@ function clearDisplay(){
     currentOutput = '';
     previousInput = '';
     currentOperation = '';
+    storageString = '';
+    negativeFlag = false; 
     document.getElementById('display').value = '';
     console.log('clearDisplay has no syntax errors');
 }
