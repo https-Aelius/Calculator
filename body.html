@@ -13,7 +13,8 @@
         <div class="buttons">
             <button class="btn clear" id="clear" onclick="clearDisplay()">C</button>
             <button class="btn backspace" id="backspace" onclick="backDisplay()">←</button>
-            <button class="btn operator" id="divide" onclick = "appendOperation('/')">÷</button>
+            <button class = 'btn positive-negative' id="positive-negative" onclick="toggleSign()">+/-</button>
+            <button class="btn operator" id="divide" onclick = "appendOperation('÷')">÷</button>
 
             <button class="btn" id="seven" onclick="appendNumber('7')">7</button>
             <button class="btn" id="eight" onclick="appendNumber('8')">8</button>
@@ -28,7 +29,8 @@
             <button class="btn" id="three" onclick="appendNumber('3')">3</button>
             <button class="btn operator" id="add" onclick="appendOperation('+')">+</button>
             <button class="btn zero" id="zero" onclick="appendNumber('0')">0</button>
-            <button class = 'btn' id="decimal" onclick="appendNumber('.')">.</button>
+            <button class = 'btn decimal' id="decimal" onclick="appendNumber('.')">.</button>
+            <button class = 'btn ANS' id="ANS" onclick="appendNumber('ANS')">Ans</button>
             <button class="btn operator" id="equals" onclick="calculate()">=</button>
         </div>
     </div>

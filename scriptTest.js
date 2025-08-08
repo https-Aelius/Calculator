@@ -4,6 +4,7 @@ let previousInput='';
 let currentOperation='';
 let storageString='';
 let negativeFlag = false;
+let sign = false; //false = positive, true = negative
 
 function appendNumber(number){ //generating code for outputting the numbers onto the screen
     if (negativeFlag) {
@@ -18,6 +19,12 @@ function appendNumber(number){ //generating code for outputting the numbers onto
         //displaying the numbers
     } 
     
+}
+
+function toggleSign(){
+    sign = sign ? false : true; //toggle the true and false after every press VERY IMPORTANT LINE OF CODE 
+    document.getElementById('positive-negative').innerHTML = sign ? '-' : '+'; //If the sign is true then display negative, vice versa.
+    console.log('sign toggled to: ', `${sign}`);
 }
 
 function appendOperation(operation){
@@ -69,7 +76,7 @@ function calculate(){
         case 'x':
             result = prev*current;
             break;
-        case '/':
+        case '÷':
             if (current === 0){
                 alert('Error: Cannot divide a by zero');
                 return;

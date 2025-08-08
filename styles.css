@@ -47,8 +47,12 @@ body{
     color: white;
 }
 
-.zero, .clear{
-    grid-column: span 2;
+.zero{
+    grid-column: span 1;
+}
+
+.decimal, .ANS, .positive-negative{
+    background-color: #8e8a8a;
 }
 
 .btn:hover {

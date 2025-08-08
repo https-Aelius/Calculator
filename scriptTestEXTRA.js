@@ -31,17 +31,19 @@ function appendOperation(operation){
     if (operation === '-' && storageOperation ==='x'){
         negativeFlag = true;
         currentOperation = storageOperation;
+        previousInput = storageNumber;
+        currentInput = '';
+
+        document.getElementById('display').value=`${previousInput} ${storageOperation} ${currentOperation}`;
         
     }
 
     if (currentInput === '' && storageNumber !== '') {
         currentOperation = operation;
         storageOperation = operation; //storing the operation
-        previousInput = storageString; //NEED THIS
+        previousInput = storageNumber; //NEED THIS
 
         currentInput = ''; //reset currentInput
-
-
 
         document.getElementById('display').value = `${previousInput} ${currentOperation}`; 
         console.log('No input if statement executed');
