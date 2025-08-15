@@ -22,7 +22,7 @@ function appendNumber(number){ //generating code for outputting the numbers onto
 }
 
 function toggleSign(){
-    //working on this currently
+    //works!!!!!
     sign = sign ? false : true; //toggle the true and false after every press VERY IMPORTANT LINE OF CODE 
     document.getElementById('positive-negative').innerHTML = sign ? '-' : '+'; //If the sign is true then display negative, vice versa.
     console.log('sign toggled to: ', `${sign}`);
@@ -36,7 +36,12 @@ function toggleSign(){
         console.log('Positive sign not appended');
     }
     sign = false; //reset the sign after appending the number
-    //find a way to reset the function from here
+    document.getElementById('positive-negative').innerHTML = '+/-';//resetting display of the sign button
+}
+
+//Now doing toggleTens function Date: 11/10/25
+function toggleTens(){
+    
 }
 
 function appendOperation(operation){
