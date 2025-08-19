@@ -6,18 +6,18 @@ let storageString='';
 let negativeFlag = false;
 let sign = false; //false = positive, true = negative
 
-function appendNumber(number){ //generating code for outputting the numbers onto the screen
+function appendNumber(number){ //generating code for outputting the numbers onto the screen    
     if (negativeFlag) {
-        currentInput += number;
-        currentInput = currentInput*-1;
-        document.getElementById('display').value = `${currentInput}`;
+        number = number*-1;
         negativeFlag = false; //reset the negative flag after appending the number
+        currentOperation='';//fixing double negative shown bug
     }
+    
     else{
         currentInput += number; //same as: currentInput = currentInput + number;
         document.getElementById('display').value = `${previousInput} ${currentOperation} ${currentInput}`; //order is important
         //displaying the numbers
-    } 
+    }
     
 }
 
@@ -41,10 +41,11 @@ function toggleSign(){
 
 //Now doing toggleTens function Date: 11/10/25
 function toggleTens(){
-    
-}
+    appendNumber('.');
+} 
 
 function appendOperation(operation){
+    decimalFlag = false; //resetting the decimal flag after appending the operation
 
     if (operation === '-' && previousInput === '' && storageString === '') {
         negativeFlag = true;
